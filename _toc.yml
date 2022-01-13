@@ -1,0 +1,10 @@
+format: jb-book
+root: content/front_page
+parts:
+- caption: Introduction
+  chapters:
+  - file: content/01_introduction/01_license
+- caption: Model code
+  chapters:
+  - file: content/02_model_code/01_model
+
