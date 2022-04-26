@@ -22,7 +22,7 @@ A [conda virtual environment](https://github.com/TomMonks/treatment-centre-sim/b
 
 ## 5.2 Random sampling 
 
-All sampling uses [`numpy.random.Generator`](https://numpy.org/doc/stable/reference/random/generator.html).  A `numpy` generator object implements the Permuted Congruential Generator 64-bit PCG64) (period = $2^128$).
+All sampling uses [`numpy.random.Generator`](https://numpy.org/doc/stable/reference/random/generator.html).  A `numpy` generator object implements the Permuted Congruential Generator 64-bit (PCG64; period = $2^{128}$).
 
 Common random number streams are used in the model.  These are created by through seed vectors (one seed for each activity in each replication).
 
