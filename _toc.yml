@@ -7,4 +7,11 @@ parts:
 - caption: Model code
   chapters:
   - file: content/02_model_code/01_model
-
+- caption: STRESS Reporting
+  chapters:
+  - file: content/03_stress/01_objectives
+  - file: content/03_stress/02_logic
+  - file: content/03_stress/03_data
+  - file: content/03_stress/04_experimentation
+  - file: content/03_stress/05_implementation
+  - file: content/03_stress/06_code_access
