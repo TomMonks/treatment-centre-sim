@@ -4,6 +4,7 @@ parts:
 - caption: Introduction
   chapters:
   - file: content/01_introduction/01_license
+  - file: content/01_introduction/02_citation
 - caption: Model code
   chapters:
   - file: content/02_model_code/01_model
