@@ -1,4 +1,4 @@
-# 5.0 Implementation
+# 5 Implementation
 
 ## 5.1 Software or programming language
 
@@ -6,7 +6,7 @@ The simulation model was developed using python 3.8 and simpy 4.0.  Simpy detail
 
 The exact software versions are:
 
-```yml
+```
 joblib=0.15.1
 jupyterlab=3.0.9
 matplotlib=3.3.4
