@@ -17,3 +17,4 @@ License info: https://creativecommons.org/licenses/by/4.0/
 ## Code: MIT Licensed
 
 All code in this supplementary material is licensed under a [MIT permissive license](https://github.com/TomMonks/treatment-centre-sim/blob/main/LICENSE)
+

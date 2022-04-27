@@ -7,54 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SimPy: Treatment Centre &#8212; Treatment centre simulation</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
 
     
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="1. Objectives" href="../03_stress/01_objectives.html" />
-    <link rel="prev" title="Citation" href="../01_introduction/02_citation.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -74,21 +72,21 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+    <a class="navbar-brand text-wrap" href="../index.html">
       
       
       
       <h1 class="site-logo" id="site-title">Treatment centre simulation</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../front_page.html">
+  <a class="reference internal" href="../content/front_page.html">
    Preface
   </a>
  </li>
@@ -100,12 +98,12 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../01_introduction/01_license.html">
+  <a class="reference internal" href="../content/01_introduction/01_license.html">
    License
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../01_introduction/02_citation.html">
+  <a class="reference internal" href="../content/01_introduction/02_citation.html">
    Citation
   </a>
  </li>
@@ -115,9 +113,9 @@ const thebe_selector_output = ".output, .cell_output"
   Model code
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../content/02_model_code/01_model.html">
    SimPy: Treatment Centre
   </a>
  </li>
@@ -129,32 +127,32 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_stress/01_objectives.html">
+  <a class="reference internal" href="../content/03_stress/01_objectives.html">
    1. Objectives
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_stress/02_logic.html">
+  <a class="reference internal" href="../content/03_stress/02_logic.html">
    2. Model logic
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_stress/03_data.html">
+  <a class="reference internal" href="../content/03_stress/03_data.html">
    3. Data
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_stress/04_experimentation.html">
+  <a class="reference internal" href="../content/03_stress/04_experimentation.html">
    4. Experimentation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_stress/05_implementation.html">
+  <a class="reference internal" href="../content/03_stress/05_implementation.html">
    5 Implementation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../03_stress/06_code_access.html">
+  <a class="reference internal" href="../content/03_stress/06_code_access.html">
    6 Code access
   </a>
  </li>
@@ -199,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/02_model_code/01_model.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/src/model.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -219,7 +217,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/TomMonks/treatment-centre-sim/issues/new?title=Issue%20on%20page%20%2Fcontent/02_model_code/01_model.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/TomMonks/treatment-centre-sim/issues/new?title=Issue%20on%20page%20%2Fsrc/model.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -240,10 +238,10 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/TomMonks/treatment-centre-sim/main?urlpath=lab/tree/content/02_model_code/01_model.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/TomMonks/treatment-centre-sim/main?urlpath=lab/tree/src/model.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
+                    src="../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
@@ -505,12 +503,9 @@ const thebe_selector_output = ".output, .cell_output"
   <div class="tex2jax_ignore mathjax_ignore section" id="simpy-treatment-centre">
 <h1>SimPy: Treatment Centre<a class="headerlink" href="#simpy-treatment-centre" title="Permalink to this headline">¶</a></h1>
 <blockquote>
-<div><p><strong>This simulation model in this notebook can be executed online. You do not need to install anything on your computer.</strong></p>
-<blockquote>
-<div><p>Move you mourse cursor over the rocket ship icon above and choose one of the two options: Binder (launches an external remote instance of Jupyter-Lab) or Thebe (code cells are excutable within the book).</p>
+<div><p><strong>To run all code in this notebook go to menu item <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">-&gt;</span> <span class="pre">Run</span> <span class="pre">All</span> <span class="pre">Cells</span></code>.</strong></p>
 </div></blockquote>
-</div></blockquote>
-<p><code class="docutils literal notranslate"><span class="pre">simpy</span></code> uses a <strong>process based model worldview</strong>.  Given its simplicity it is a highly flexible discrete-event simulation package.</p>
+<p><code class="docutils literal notranslate"><span class="pre">simpy</span></code> uses process based model worldview.  Given its simplicity it is a highly flexible discrete-event simulation package.</p>
 <p>One of the benefits of a package like <code class="docutils literal notranslate"><span class="pre">simpy</span></code> is that it is written in standard python and is free and open for others to use.</p>
 <ul class="simple">
 <li><p>For research this is highly beneficial:</p>
@@ -528,7 +523,10 @@ const thebe_selector_output = ".output, .cell_output"
 <hr class="docutils" />
 <div class="section" id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
-<p>The model is provided with a conda virtual environment <code class="docutils literal notranslate"><span class="pre">treatment_sim</span></code>.  Details are available in the <a class="reference external" href="https://github.com/TomMonks/treatment-centre-sim/blob/main/environment.yml">Github repo</a>.</p>
+<p>It is recommended that you use the provided conda virtual environment <code class="docutils literal notranslate"><span class="pre">treat-sim</span></code>.</p>
+<blockquote>
+<div><p>If you are running this code in <strong>Google Colab</strong> then <code class="docutils literal notranslate"><span class="pre">simpy</span></code> can be pip installed.</p>
+</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install simpy if running in Google Colab</span>
@@ -630,8 +628,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The data for arrival rates varies between clinic opening at 6am and closure at 12am.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># data are held in the Github repo and loaded from there.</span>
-<span class="n">NSPP_PATH</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NSPP_PATH</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/TomMonks/&#39;</span> \
  <span class="o">+</span> <span class="s1">&#39;open-science-for-sim/main/src/notebooks/01_foss_sim/data/ed_arrivals.csv&#39;</span>
 
 <span class="c1"># visualise</span>
@@ -643,7 +640,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_model_10_0.png" src="../../_images/01_model_10_0.png" />
+<img alt="../_images/model_10_0.png" src="../_images/model_10_0.png" />
 </div>
 </div>
 </div>
@@ -1907,8 +1904,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 
-CPU times: user 2.32 s, sys: 31.2 ms, total: 2.35 s
-Wall time: 4.14 s
+CPU times: user 2.56 s, sys: 28.5 ms, total: 2.59 s
+Wall time: 4.4 s
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2071,7 +2068,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/01_model_38_0.png" src="../../_images/01_model_38_0.png" />
+<img alt="../_images/model_38_0.png" src="../_images/model_38_0.png" />
 </div>
 </div>
 <p>## Scenario Analysis</p>
@@ -2423,7 +2420,7 @@ Scenario analysis complete.
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/02_model_code"
+            path: "./src"
         },
         predefinedOutput: true
     }
@@ -2434,21 +2431,7 @@ Scenario analysis complete.
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../01_introduction/02_citation.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Citation</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../03_stress/01_objectives.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1. Objectives</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>
@@ -2467,7 +2450,7 @@ Scenario analysis complete.
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
