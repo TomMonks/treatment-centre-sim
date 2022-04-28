@@ -3,8 +3,9 @@ root: content/front_page
 parts:
 - caption: Introduction
   chapters:
-  - file: content/01_introduction/01_license
-  - file: content/01_introduction/02_citation
+  - file: content/01_introduction/01_overview
+  - file: content/01_introduction/02_license
+  - file: content/01_introduction/03_citation
 - caption: Model code
   chapters:
   - file: content/02_model_code/01_model
