@@ -8,6 +8,7 @@ parts:
   - file: content/01_introduction/03_citation
 - caption: Model code
   chapters:
+  - file: content/02_model_code/00_summary
   - file: content/02_model_code/01_model
 - caption: STRESS Reporting
   chapters:
