@@ -8,8 +8,10 @@ parts:
   - file: content/01_introduction/03_citation
 - caption: Model code
   chapters:
-  - file: content/02_model_code/00_summary
-  - file: content/02_model_code/01_model
+  - file: content/02_model_code/01_summary
+  - file: content/02_model_code/02_simpy
+  - file: content/02_model_code/03_problem
+  - file: content/02_model_code/04_model
 - caption: STRESS Reporting
   chapters:
   - file: content/03_stress/01_objectives

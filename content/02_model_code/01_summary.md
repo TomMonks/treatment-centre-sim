@@ -1,4 +1,4 @@
-## Model non-technical summary
+# Model non-technical summary
 
 The model is written in the python programming language and uses a simulation package called `simpy`.  The model code is organised in a Jupyter notebook.  The notebook is organised as follows:
 
