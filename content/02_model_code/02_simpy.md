@@ -6,4 +6,7 @@ One of the benefits of a package like `simpy` is that it is written in standard 
 * For research this is highly beneficial:
     * models and methods tested against them can be shared without concerns for commerical licensing.  
     * experimental results (either from model or method) can be recreated by other research teams.
+    
 * The version of `simpy` in use can also be controlled.  This avoids backwards compatibility problems if models are returned to after several years.
+
+> Detailed documentation for `simpy` and additional models can be found here: https://simpy.readthedocs.io/en/latest/
