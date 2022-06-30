@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="1. Objectives" href="../03_stress/01_objectives.html" />
-    <link rel="prev" title="Model non-technical summary" href="01_summary.html" />
+    <link rel="prev" title="Model non-technical summary" href="03a_summary.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -119,6 +119,11 @@ const thebe_selector_output = ".output, .cell_output"
    Open working statement
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_introduction/05_contributing.html">
+   Contributing
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -127,7 +132,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="03_problem.html">
+  <a class="reference internal" href="01_problem.html">
    Problem description
   </a>
  </li>
@@ -137,12 +142,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03a_instr.html">
+  <a class="reference internal" href="03_instr.html">
    Steps to reproduce results
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="01_summary.html">
+  <a class="reference internal" href="03a_summary.html">
    Model non-technical summary
   </a>
  </li>
@@ -536,9 +541,11 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>SimPy: Treatment Centre<a class="headerlink" href="#simpy-treatment-centre" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-running-the-model admonition">
 <p class="admonition-title">Running the model</p>
-<p><strong>This simulation model in this notebook can be executed online. You do not need to install anything on your computer.</strong> Move you mourse cursor over the rocket ship icon above and choose one of the two options: Binder (launches an external remote instance of Jupyter-Lab) or Thebe (code cells are excutable within the book).
-See <a class="reference internal" href="03a_instr.html"><span class="doc std std-doc">detailed instructions</span></a> for more help.</p>
+<p><strong>This simulation model in this notebook can be executed online. You do not need to install anything on your computer.</strong> Move you mourse cursor over the rocket ship icon above and choose one of the two options: Binder (launches an external remote instance of Jupyter-Lab) or Thebe (code cells are excutable within the book).</p>
 </div>
+<blockquote>
+<div><p>See <a class="reference internal" href="03_instr.html"><span class="doc std std-doc">detailed instructions</span></a> for more help.</p>
+</div></blockquote>
 <hr class="docutils" />
 <div class="section" id="imports">
 <h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
@@ -563,6 +570,7 @@ See <a class="reference internal" href="03a_instr.html"><span class="doc std std
 <span class="kn">import</span> <span class="nn">itertools</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">fileinput</span>
 </pre></div>
 </div>
 </div>
@@ -1884,8 +1892,8 @@ See <a class="reference internal" href="03a_instr.html"><span class="doc std std
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 
-CPU times: user 2.8 s, sys: 45.8 ms, total: 2.85 s
-Wall time: 4.59 s
+CPU times: user 2.48 s, sys: 26.6 ms, total: 2.51 s
+Wall time: 4.28 s
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2493,9 +2501,7 @@ Scenario analysis complete.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fileinput</span>
-
-<span class="c1"># output to file as LaTeX</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># output to file as LaTeX</span>
 <span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s1">&#39;output/table_3.txt&#39;</span>
 <span class="n">LABEL</span> <span class="o">=</span> <span class="s1">&#39;tab:table3&#39;</span>
 <span class="n">CAPTION</span> <span class="o">=</span> <span class="s1">&#39;Simulation results that can be verified by our example reproducible pipeline.&#39;</span>
@@ -2567,7 +2573,7 @@ Mean waiting time (mins) &amp;   base &amp;  triage+1 &amp;  exam+1 &amp;  treat
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="01_summary.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="03a_summary.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
