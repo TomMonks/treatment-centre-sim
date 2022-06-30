@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Model non-technical summary &#8212; Treatment centre simulation</title>
+    <title>Steps to reproduce results &#8212; Treatment centre simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="SimPy: Treatment Centre" href="04_model.html" />
-    <link rel="prev" title="Steps to reproduce results" href="03a_instr.html" />
+    <link rel="next" title="Model non-technical summary" href="03a_summary.html" />
+    <link rel="prev" title="Simulaton Software Overview" href="02_simpy.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -127,7 +127,7 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="03_problem.html">
+  <a class="reference internal" href="01_problem.html">
    Problem description
   </a>
  </li>
@@ -136,13 +136,13 @@ const thebe_selector_output = ".output, .cell_output"
    Simulaton Software Overview
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03a_instr.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Steps to reproduce results
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a_summary.html">
    Model non-technical summary
   </a>
  </li>
@@ -229,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/02_model_code/01_summary.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/02_model_code/03_instr.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -249,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/TomMonks/treatment-centre-sim/issues/new?title=Issue%20on%20page%20%2Fcontent/02_model_code/01_summary.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/TomMonks/treatment-centre-sim/issues/new?title=Issue%20on%20page%20%2Fcontent/02_model_code/03_instr.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -270,6 +270,39 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#launching-jupyter-lab-on-binderhub">
+   Launching Jupyter Lab on BinderHub
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#executing-code-in-the-book">
+   Executing code in the book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#executing-the-code-on-a-local-machine-using-docker">
+   Executing the code on a local machine using Docker
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-the-image">
+   Downloading the image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-container-and-model">
+   Running the container and model.
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -277,42 +310,100 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Model non-technical summary</h1>
+                <h1>Steps to reproduce results</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#launching-jupyter-lab-on-binderhub">
+   Launching Jupyter Lab on BinderHub
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#executing-code-in-the-book">
+   Executing code in the book
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#executing-the-code-on-a-local-machine-using-docker">
+   Executing the code on a local machine using Docker
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#downloading-the-image">
+   Downloading the image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-the-container-and-model">
+   Running the container and model.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="model-non-technical-summary">
-<h1>Model non-technical summary<a class="headerlink" href="#model-non-technical-summary" title="Permalink to this headline">¶</a></h1>
-<p>The model is written in the python programming language and uses a simulation package called <code class="docutils literal notranslate"><span class="pre">simpy</span></code>.  The model code is organised in a Jupyter notebook.  The notebook is organised as follows:</p>
-<p><strong>Imports</strong></p>
-<p>The code imports the python libraries needed to run the computer simulation.</p>
-<p><strong>Constants and defaults for modelling as-is</strong></p>
-<p>This allows a user to set the default distribution parameters, time-dependent arrival rate, resource counts, and simulation settings (number of replications, run length etc.)</p>
-<p><strong>Utility functions</strong></p>
-<p>Non-core code that provides utilities for simulation model users.</p>
-<p><strong>Distribution classes</strong></p>
-<p>High level distribution classes built on <code class="docutils literal notranslate"><span class="pre">numpy</span></code> with their own random number stream.</p>
-<p><strong>Model Parameterisation</strong></p>
-<p>A scenario class that is initialised using user set defaults and can be modified to execute different experiments.  The scenario class also controls common random numbers.</p>
-<p><strong>Patient Pathways Process Logic</strong></p>
-<p>This section contains the actual model logic.  It is organised into two classes to mimic the logic for trauma and non-trauma patients.</p>
-<p><strong>Main model</strong></p>
-<p>This section creates the model and generates random patient arrivals to the model.</p>
-<p><strong>Logic to process end of run results</strong></p>
-<p>This section contains code to produce a summary of simulation results</p>
-<p><strong>Executing a model</strong></p>
-<p>Contains code demonstrating how to perform a base run (and multiple replications) of the model and obtain and display results.</p>
-<p><strong>Scenario analysis</strong></p>
-<p>Contains full set of experiments performed with the model.  The code creates the different experiments and run each in turn.  A summary of results is provided a the end.</p>
-<p><strong>Script to produce formatted LaTeX paper</strong></p>
-<p>Recreates the LaTeX used to report the results as a table in a paper.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="steps-to-reproduce-results">
+<h1>Steps to reproduce results<a class="headerlink" href="#steps-to-reproduce-results" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="launching-jupyter-lab-on-binderhub">
+<h2>Launching Jupyter Lab on BinderHub<a class="headerlink" href="#launching-jupyter-lab-on-binderhub" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="04_model.html"><span class="doc std std-doc">model code</span></a> can be executed without having to install anything on a local machine.</p>
+<ol class="simple">
+<li><p>Open the model code page of this book</p></li>
+<li><p>In the top right hand corner you will see that a rocket ship icon is added to the tool bar.  Move the cursor over this rocket ship and select Binder from the drop down list</p></li>
+<li><p>Jupyter lab will now launch on BinderHub.  This is a remote instance of Jupyter. You will be presented with a notebook containing the model code.</p></li>
+<li><p>From the <code class="docutils literal notranslate"><span class="pre">Run</span></code> menu select <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">All</span></code>. This will run all cells and reproduce the results of the study.</p></li>
+</ol>
+<div class="admonition-launching-a-remote-instance-of-jupyter admonition">
+<p class="admonition-title">Launching a remote instance of Jupyter</p>
+<p>Note that BinderHub will build a Docker image containing the required software and model code. If the instance has not been used for several days this will take several minutes to complete.  The launch will speed up after an initial build.  None of this is affected by the speed of your local machine.</p>
+</div>
+</div>
+<div class="section" id="executing-code-in-the-book">
+<h2>Executing code in the book<a class="headerlink" href="#executing-code-in-the-book" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="04_model.html"><span class="doc std std-doc">model code</span></a> can also be excuted directly from the pages of this book.  To do this repeat steps 1-2 above, but select <code class="docutils literal notranslate"><span class="pre">live</span> <span class="pre">code</span></code> from the drop down menu.  Blocks of code will now be converted to interactive and executable <strong>cells</strong>.</p>
+</div>
+<div class="section" id="executing-the-code-on-a-local-machine-using-docker">
+<h2>Executing the code on a local machine using Docker<a class="headerlink" href="#executing-the-code-on-a-local-machine-using-docker" title="Permalink to this headline">¶</a></h2>
+<p>The model and software environment used to create it are available as a <code class="docutils literal notranslate"><span class="pre">docker</span></code> image.</p>
+<p>You will need <code class="docutils literal notranslate"><span class="pre">docker</span></code> installed on your local machine from <a class="reference external" href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
+<ul class="simple">
+<li><p>linux users can install: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">docker.io</span></code></p></li>
+<li><p>Mac OS users can install docker desktop: <a class="reference external" href="https://docs.docker.com/docker-for-mac/install/">https://docs.docker.com/docker-for-mac/install/</a></p></li>
+<li><p>Windows user can install docker desktop via WSL2: <a class="reference external" href="https://docs.docker.com/docker-for-windows/install/">https://docs.docker.com/docker-for-windows/install/</a></p></li>
+</ul>
+</div>
+<div class="section" id="downloading-the-image">
+<h2>Downloading the image<a class="headerlink" href="#downloading-the-image" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># pull the image containing the model from dockerhub </span>
+<span class="n">docker</span> <span class="n">pull</span> <span class="n">tommonks01</span><span class="o">/</span><span class="n">treat_sim</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-the-container-and-model">
+<h2>Running the container and model.<a class="headerlink" href="#running-the-container-and-model" title="Permalink to this headline">¶</a></h2>
+<p>Open a terminal or cmd line</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># run the docker image and map local port 8181 to port 80 on the container</span>
+<span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8181</span><span class="p">:</span><span class="mi">80</span> <span class="n">tommonks01</span><span class="o">/</span><span class="n">treat_sim</span>
+</pre></div>
+</div>
+<p>Launch a browser and navigate to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="p">:</span><span class="mi">8181</span>
+</pre></div>
+</div>
+<p>This launches Jupyter-Lab.  The model can be found in the model.ipynb notebook.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -340,17 +431,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="03a_instr.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_simpy.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Steps to reproduce results</p>
+            <p class="prev-next-title">Simulaton Software Overview</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="04_model.html" title="next page">
+    <a class='right-next' id="next-link" href="03a_summary.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SimPy: Treatment Centre</p>
+        <p class="prev-next-title">Model non-technical summary</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

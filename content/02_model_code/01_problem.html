@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Model non-technical summary &#8212; Treatment centre simulation</title>
+    <title>Problem description &#8212; Treatment centre simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="SimPy: Treatment Centre" href="04_model.html" />
-    <link rel="prev" title="Steps to reproduce results" href="03a_instr.html" />
+    <link rel="next" title="Simulaton Software Overview" href="02_simpy.html" />
+    <link rel="prev" title="Open working statement" href="../01_introduction/04_openworking.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -126,8 +126,8 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="03_problem.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Problem description
   </a>
  </li>
@@ -137,12 +137,12 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03a_instr.html">
+  <a class="reference internal" href="03_instr.html">
    Steps to reproduce results
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a_summary.html">
    Model non-technical summary
   </a>
  </li>
@@ -229,7 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/content/02_model_code/01_summary.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/content/02_model_code/01_problem.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -249,7 +249,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/TomMonks/treatment-centre-sim/issues/new?title=Issue%20on%20page%20%2Fcontent/02_model_code/01_summary.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/TomMonks/treatment-centre-sim/issues/new?title=Issue%20on%20page%20%2Fcontent/02_model_code/01_problem.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -270,6 +270,19 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#firsttreatment-a-health-clinic-based-in-the-us">
+   FirstTreatment: A health clinic based in the US.
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -277,42 +290,54 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Model non-technical summary</h1>
+                <h1>Problem description</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#firsttreatment-a-health-clinic-based-in-the-us">
+   FirstTreatment: A health clinic based in the US.
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="model-non-technical-summary">
-<h1>Model non-technical summary<a class="headerlink" href="#model-non-technical-summary" title="Permalink to this headline">¶</a></h1>
-<p>The model is written in the python programming language and uses a simulation package called <code class="docutils literal notranslate"><span class="pre">simpy</span></code>.  The model code is organised in a Jupyter notebook.  The notebook is organised as follows:</p>
-<p><strong>Imports</strong></p>
-<p>The code imports the python libraries needed to run the computer simulation.</p>
-<p><strong>Constants and defaults for modelling as-is</strong></p>
-<p>This allows a user to set the default distribution parameters, time-dependent arrival rate, resource counts, and simulation settings (number of replications, run length etc.)</p>
-<p><strong>Utility functions</strong></p>
-<p>Non-core code that provides utilities for simulation model users.</p>
-<p><strong>Distribution classes</strong></p>
-<p>High level distribution classes built on <code class="docutils literal notranslate"><span class="pre">numpy</span></code> with their own random number stream.</p>
-<p><strong>Model Parameterisation</strong></p>
-<p>A scenario class that is initialised using user set defaults and can be modified to execute different experiments.  The scenario class also controls common random numbers.</p>
-<p><strong>Patient Pathways Process Logic</strong></p>
-<p>This section contains the actual model logic.  It is organised into two classes to mimic the logic for trauma and non-trauma patients.</p>
-<p><strong>Main model</strong></p>
-<p>This section creates the model and generates random patient arrivals to the model.</p>
-<p><strong>Logic to process end of run results</strong></p>
-<p>This section contains code to produce a summary of simulation results</p>
-<p><strong>Executing a model</strong></p>
-<p>Contains code demonstrating how to perform a base run (and multiple replications) of the model and obtain and display results.</p>
-<p><strong>Scenario analysis</strong></p>
-<p>Contains full set of experiments performed with the model.  The code creates the different experiments and run each in turn.  A summary of results is provided a the end.</p>
-<p><strong>Script to produce formatted LaTeX paper</strong></p>
-<p>Recreates the LaTeX used to report the results as a table in a paper.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="problem-description">
+<h1>Problem description<a class="headerlink" href="#problem-description" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="firsttreatment-a-health-clinic-based-in-the-us">
+<h2>FirstTreatment: A health clinic based in the US.<a class="headerlink" href="#firsttreatment-a-health-clinic-based-in-the-us" title="Permalink to this headline">¶</a></h2>
+<p><strong>This example is based on exercise 13 from Nelson (2013) page 170.</strong></p>
+<blockquote>
+<div><p><em>Nelson. B.L. (2013). <a class="reference external" href="https://www.amazon.co.uk/Foundations-Methods-Stochastic-Simulation-International/dp/1461461596/ref=sr_1_1?dchild=1&amp;keywords=foundations+and+methods+of+stochastic+simulation&amp;qid=1617050801&amp;sr=8-1">Foundations and methods of stochastic simulation</a>. Springer.</em></p>
+</div></blockquote>
+<p>Patients arrive to the health clinic between 6am and 12am following a non-stationary poisson process. After 12am arriving patients are diverted elsewhere and remaining WIP is completed.  On arrival, all patients quickly sign-in and are <strong>triaged</strong>.</p>
+<p>The health clinic expects two types of patient arrivals:</p>
+<p><strong>Trauma arrivals:</strong></p>
+<ul class="simple">
+<li><p>patients with severe illness and trauma that must first be stablised in a <strong>trauma room</strong>.</p></li>
+<li><p>these patients then undergo <strong>treatment</strong> in a cubicle before being discharged.</p></li>
+</ul>
+<p><strong>Non-trauma arrivals</strong></p>
+<ul class="simple">
+<li><p>patients with minor illness and no trauma go through <strong>registration</strong> and <strong>examination</strong> activities</p></li>
+<li><p>a proportion of non-trauma patients require <strong>treatment</strong> in a cubicle before being dicharged.</p></li>
+</ul>
+<blockquote>
+<div><p>In this model treatment of trauma and non-trauma patients is modelled seperately.</p>
+</div></blockquote>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -340,17 +365,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="03a_instr.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../01_introduction/04_openworking.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Steps to reproduce results</p>
+            <p class="prev-next-title">Open working statement</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="04_model.html" title="next page">
+    <a class='right-next' id="next-link" href="02_simpy.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SimPy: Treatment Centre</p>
+        <p class="prev-next-title">Simulaton Software Overview</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
