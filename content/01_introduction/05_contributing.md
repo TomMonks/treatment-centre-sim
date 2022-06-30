@@ -4,7 +4,7 @@ We welcome contributions to the book and the model.  In each case credit will be
 
 ## Typographical and grammatical errors
 
-If you spot a typo, spelling mistake, poor grammar (no matter how minor), or just feel a sentence/paragraph could be rewritten to improve clarity, we would greatly appreciate you reporting it.  You can do that by raising a Github issue via the repository.  The url is [https://github.com/TomMonks/treatment-centre-sim/issues](https://github.com/TomMonks/treatment-centre-sim/issues))
+If you spot a typo, spelling mistake, poor grammar (no matter how minor), or just feel a sentence/paragraph could be rewritten to improve clarity, we would greatly appreciate you reporting it.  You can do that by raising a Github issue via the repository.  The url is [https://github.com/TomMonks/treatment-centre-sim/issues](https://github.com/TomMonks/treatment-centre-sim/issues)
 
 When you submit an issue please provide:
 
@@ -15,7 +15,7 @@ When you submit an issue please provide:
 
 ## Reporting bugs
 
-If you find a bug in any of the code please report via [Github issues]https://github.com/TomMonks/treatment-centre-sim/issues).  Please provide the following:
+If you find a bug in any of the code please report via [Github issues](https://github.com/TomMonks/treatment-centre-sim/issues).  Please provide the following:
 
 * The operating system and version you are using.
 * Details of your python dependencies or virtual environment if you are using one. (if using conda please provide a environment.yml file - see the conda exercises for help )
@@ -27,7 +27,7 @@ If you find a bug in any of the code please report via [Github issues]https://gi
 
 ## Submit general feedback or request new content
 
-The book will evolve over time. We would greatly welcome feedback, via Github issues, on the book including requests for new new topics, chapters, or expanded sections.
+The book will evolve over time. We would greatly welcome feedback, via [Github issues](https://github.com/TomMonks/treatment-centre-sim/issues), on the book including requests for new new topics, chapters, or expanded sections.
 
 ### Requests
 
