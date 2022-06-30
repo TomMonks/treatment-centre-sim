@@ -114,6 +114,11 @@ const thebe_selector_output = ".output, .cell_output"
    Citation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01_introduction/04_openworking.html">
+   Open working statement
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -129,6 +134,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="02_simpy.html">
    Simulaton Software Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03a_instr.html">
+   Steps to reproduce results
   </a>
  </li>
  <li class="toctree-l1">
@@ -380,6 +390,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#script-to-produce-formatted-latex-table-for-paper">
+   11. Script to produce formatted LaTeX table for paper
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#end">
    End
   </a>
@@ -499,6 +514,11 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#script-to-produce-formatted-latex-table-for-paper">
+   11. Script to produce formatted LaTeX table for paper
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#end">
    End
   </a>
@@ -516,7 +536,8 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>SimPy: Treatment Centre<a class="headerlink" href="#simpy-treatment-centre" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-running-the-model admonition">
 <p class="admonition-title">Running the model</p>
-<p><strong>This simulation model in this notebook can be executed online. You do not need to install anything on your computer.</strong> Move you mourse cursor over the rocket ship icon above and choose one of the two options: Binder (launches an external remote instance of Jupyter-Lab) or Thebe (code cells are excutable within the book).</p>
+<p><strong>This simulation model in this notebook can be executed online. You do not need to install anything on your computer.</strong> Move you mourse cursor over the rocket ship icon above and choose one of the two options: Binder (launches an external remote instance of Jupyter-Lab) or Thebe (code cells are excutable within the book).
+See <a class="reference internal" href="03a_instr.html"><span class="doc std std-doc">detailed instructions</span></a> for more help.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="imports">
@@ -1863,8 +1884,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 
-CPU times: user 2.09 s, sys: 33.5 ms, total: 2.12 s
-Wall time: 3.44 s
+CPU times: user 2.8 s, sys: 45.8 ms, total: 2.85 s
+Wall time: 4.59 s
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2358,6 +2379,161 @@ Scenario analysis complete.
   </tbody>
 </table>
 </div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="script-to-produce-formatted-latex-table-for-paper">
+<h2>11. Script to produce formatted LaTeX table for paper<a class="headerlink" href="#script-to-produce-formatted-latex-table-for-paper" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">HEADER_URL</span> <span class="o">=</span> <span class="s1">&#39;data/tbl_row_headers.csv&#39;</span>
+<span class="n">WAIT</span> <span class="o">=</span> <span class="s1">&#39;wait&#39;</span>
+
+<span class="c1"># filter for waiting times only and round to 2dp</span>
+<span class="n">waiting_times</span> <span class="o">=</span> <span class="n">summary_frame</span><span class="p">[</span><span class="n">summary_frame</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">WAIT</span><span class="p">)]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># load formatted table headers</span>
+<span class="n">row_headers</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">HEADER_URL</span><span class="p">)</span>
+
+<span class="c1"># merge and format headers</span>
+<span class="n">waiting_times</span> <span class="o">=</span> <span class="n">waiting_times</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">waiting_times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">row_headers</span><span class="p">,</span> <span class="n">waiting_times</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">waiting_times</span> <span class="o">=</span> <span class="n">waiting_times</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">row_headers</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">waiting_times</span> <span class="o">=</span> <span class="n">waiting_times</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;index&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">waiting_times</span> <span class="o">=</span> <span class="n">waiting_times</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">waiting_times</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Mean waiting time (mins)</th>
+      <th>base</th>
+      <th>triage+1</th>
+      <th>exam+1</th>
+      <th>treat+1</th>
+      <th>triage+exam</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Triage</td>
+      <td>28.86</td>
+      <td>1.09</td>
+      <td>36.46</td>
+      <td>39.36</td>
+      <td>1.14</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Registation</td>
+      <td>113.56</td>
+      <td>138.79</td>
+      <td>106.27</td>
+      <td>108.46</td>
+      <td>140.14</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Examination</td>
+      <td>24.57</td>
+      <td>24.15</td>
+      <td>0.13</td>
+      <td>23.03</td>
+      <td>0.15</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Non-trauma treatment</td>
+      <td>137.72</td>
+      <td>139.98</td>
+      <td>151.82</td>
+      <td>2.26</td>
+      <td>152.09</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Trauma stabilisation</td>
+      <td>144.46</td>
+      <td>154.00</td>
+      <td>132.94</td>
+      <td>146.09</td>
+      <td>165.43</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Trauma treatment</td>
+      <td>168.27</td>
+      <td>209.12</td>
+      <td>195.16</td>
+      <td>150.37</td>
+      <td>193.69</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fileinput</span>
+
+<span class="c1"># output to file as LaTeX</span>
+<span class="n">OUTPUT_FILE</span> <span class="o">=</span> <span class="s1">&#39;output/table_3.txt&#39;</span>
+<span class="n">LABEL</span> <span class="o">=</span> <span class="s1">&#39;tab:table3&#39;</span>
+<span class="n">CAPTION</span> <span class="o">=</span> <span class="s1">&#39;Simulation results that can be verified by our example reproducible pipeline.&#39;</span>
+
+<span class="n">waiting_times</span><span class="o">.</span><span class="n">to_latex</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">LABEL</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="n">CAPTION</span><span class="p">)</span>
+
+<span class="c1"># modify LaTeX file -&gt; convert \caption to \tbl</span>
+<span class="k">with</span> <span class="n">fileinput</span><span class="o">.</span><span class="n">FileInput</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">as</span> <span class="n">latex_file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">latex_file</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;caption&#39;</span><span class="p">,</span> <span class="s1">&#39;tbl&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="c1"># view LaTeX to verify</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">file1</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>\begin{table}
+\centering
+\tbl{Simulation results that can be verified by our example reproducible pipeline.}
+\label{tab:table3}
+\begin{tabular}{lrrrrr}
+\toprule
+Mean waiting time (mins) &amp;   base &amp;  triage+1 &amp;  exam+1 &amp;  treat+1 &amp;  triage+exam \\
+\midrule
+                  Triage &amp;  28.86 &amp;      1.09 &amp;   36.46 &amp;    39.36 &amp;         1.14 \\
+             Registation &amp; 113.56 &amp;    138.79 &amp;  106.27 &amp;   108.46 &amp;       140.14 \\
+             Examination &amp;  24.57 &amp;     24.15 &amp;    0.13 &amp;    23.03 &amp;         0.15 \\
+    Non-trauma treatment &amp; 137.72 &amp;    139.98 &amp;  151.82 &amp;     2.26 &amp;       152.09 \\
+    Trauma stabilisation &amp; 144.46 &amp;    154.00 &amp;  132.94 &amp;   146.09 &amp;       165.43 \\
+        Trauma treatment &amp; 168.27 &amp;    209.12 &amp;  195.16 &amp;   150.37 &amp;       193.69 \\
+\bottomrule
+\end{tabular}
+\end{table}
+</pre></div>
+</div>
 </div>
 </div>
 </div>
