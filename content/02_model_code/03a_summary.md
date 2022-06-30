@@ -41,3 +41,7 @@ Contains code demonstrating how to perform a base run (and multiple replications
 **Scenario analysis**
 
 Contains full set of experiments performed with the model.  The code creates the different experiments and run each in turn.  A summary of results is provided a the end.
+
+**Script to produce formatted LaTeX paper**
+
+Recreates the LaTeX used to report the results as a table in a paper. 
