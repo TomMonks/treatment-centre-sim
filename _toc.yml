@@ -8,6 +8,7 @@ parts:
   - file: content/01_introduction/03_citation
   - file: content/01_introduction/04_openworking
   - file: content/01_introduction/05_contributing
+  - file: content/01_introduction/06_plain_english
 - caption: Model code
   chapters:
   - file: content/02_model_code/01_problem
