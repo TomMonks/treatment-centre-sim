@@ -1,0 +1,2 @@
+include *.txt
+recursive-include treat_sim/data *.csv
