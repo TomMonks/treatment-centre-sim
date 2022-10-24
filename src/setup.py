@@ -32,7 +32,6 @@ setuptools.setup(
     author_email="forecast-tools@gmail.com",
     license="The MIT License (MIT)",
     license_files=('LICENSE', ),
-    description="Tools to support the forecasting process in Python",
     description="A free and open implementation of the Treatment Centre Model from Nelson (2013)",
     # read in from readme.md and will appear on PyPi
     long_description=long_description,
