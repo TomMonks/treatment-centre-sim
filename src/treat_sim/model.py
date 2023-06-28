@@ -159,39 +159,117 @@ def trace(msg):
 
 # ## Model parameterisation
 
-
 class Scenario:
     '''
     Container class for scenario parameters/arguments
-
-    For convienience a container class is used to hold the large number of model 
-    parameters.  The `Scenario` class includes defaults  these can easily be 
-    changed and at runtime to experiments with different designs.
     
     Passed to a model and its process classes
     '''
-    def __init__(self, random_number_set=DEFAULT_RNG_SET):
+    def __init__(self, random_number_set=DEFAULT_RNG_SET,
+                 n_triage=DEFAULT_N_TRIAGE,
+                 n_reg=DEFAULT_N_REG,
+                 n_exam=DEFAULT_N_EXAM,
+                 n_trauma=DEFAULT_N_TRAUMA,
+                 n_cubicles_1=DEFAULT_N_CUBICLES_1,
+                 n_cubicles_2=DEFAULT_N_CUBICLES_2,
+                 triage_mean=DEFAULT_TRIAGE_MEAN,
+                 reg_mean=DEFAULT_REG_MEAN,
+                 reg_var=DEFAULT_REG_VAR,
+                 exam_mean=DEFAULT_EXAM_MEAN,
+                 exam_var=DEFAULT_EXAM_VAR,
+                 trauma_mean=DEFAULT_TRAUMA_MEAN,
+                 trauma_treat_mean=DEFAULT_TRAUMA_TREAT_MEAN,
+                 trauma_treat_var=DEFAULT_TRAUMA_TREAT_VAR,
+                 non_trauma_treat_mean=DEFAULT_NON_TRAUMA_TREAT_MEAN,
+                 non_trauma_treat_var=DEFAULT_NON_TRAUMA_TREAT_VAR,
+                 non_trauma_treat_p=DEFAULT_NON_TRAUMA_TREAT_P,
+                 prob_trauma=DEFAULT_PROB_TRAUMA):
         '''
-        The init method sets up our defaults.
+        Create a scenario to parameterise the simulation model
         
         Parameters:
         -----------
         random_number_set: int, optional (default=DEFAULT_RNG_SET)
             Set to control the initial seeds of each stream of pseudo
             random numbers used in the model.
+        
+        n_triage: int
+            The number of triage cubicles
+        
+        n_reg: int
+            The number of registration clerks
+            
+        n_exam: int
+            The number of examination rooms
+            
+        n_trauma: int
+            The number of trauma bays for stablisation
+            
+        n_cubicles_1: int
+            The number of non-trauma treatment cubicles
+            
+        n_cubicles_2: int
+            The number of trauma treatment cubicles
+            
+        triage_mean: float
+            Mean duration of the triage distribution (Exponential)
+            
+        reg_mean: float
+            Mean duration of the registration distribution (Lognormal)
+            
+        reg_var: float
+            Variance of the registration distribution (Lognormal)
+            
+        exam_mean: float
+            Mean of the examination distribution (Normal)
+            
+        exam_var: float
+            Variance of the examination distribution (Normal)
+            
+        trauma_mean: float
+            Mean of the trauma stabilisation distribution (Exponential)
+            
+        trauma_treat_mean: float
+            Mean of the trauma cubicle treatment distribution (Lognormal)
+            
+        trauma_treat_var: float
+            Variance of the trauma cubicle treatment distribution (Lognormal)
+        
+        non_trauma_treat_mean: float
+            Mean of the non trauma treatment distribution
+            
+        non_trauma_treat_var: float
+            Variance of the non trauma treatment distribution
+        
+        non_trauma_treat_p: float
+            Probability non trauma patient requires treatment
+            
+        prob_trauma: float
+            probability that a new arrival is a trauma patient.
         '''
         # sampling
         self.random_number_set = random_number_set
-
-        # count of each type of resource
-        self.init_resourse_counts()
-
-        # pathway variables
-        self.init_pathway_variables()
-
-        # sampling distributions
+        
+        # store parameters for sampling
+        self.triage_mean = triage_mean
+        self.reg_mean = reg_mean
+        self.reg_var = reg_var
+        self.exam_mean= exam_mean
+        self.exam_var = exam_var
+        self.trauma_mean = trauma_mean
+        self.trauma_treat_mean = trauma_treat_mean
+        self.trauma_treat_var = trauma_treat_var
+        self.non_trauma_treat_mean = non_trauma_treat_mean
+        self.non_trauma_treat_var = non_trauma_treat_var
+        self.non_trauma_treat_p = non_trauma_treat_p
+        self.prob_trauma = prob_trauma
+        
         self.init_sampling()
-            
+        
+        # count of each type of resource
+        self.init_resourse_counts(n_triage, n_reg, n_exam, n_trauma,
+                                  n_cubicles_1, n_cubicles_2)
+    
     def set_random_no_set(self, random_number_set):
         '''
         Controls the random sampling 
@@ -204,65 +282,19 @@ class Scenario:
         self.random_number_set = random_number_set
         self.init_sampling()
 
-    def init_resourse_counts(self):
+    def init_resourse_counts(self, n_triage, n_reg, n_exam, n_trauma,
+                             n_cubicles_1, n_cubicles_2):
         '''
         Init the counts of resources to default values...
         '''
-        self.n_triage = DEFAULT_N_TRIAGE
-        self.n_reg = DEFAULT_N_REG
-        self.n_exam = DEFAULT_N_EXAM
-        self.n_trauma = DEFAULT_N_TRAUMA
+        self.n_triage = n_triage
+        self.n_reg = n_reg
+        self.n_exam = n_exam
+        self.n_trauma = n_trauma
         
         # non-trauma (1), trauma (2) treatment cubicles
-        self.n_cubicles_1 = DEFAULT_N_CUBICLES_1
-        self.n_cubicles_2 = DEFAULT_N_CUBICLES_2
-
-    def init_pathway_variables(self):
-        # trauma pathway
-        self.prob_trauma = DEFAULT_PROB_TRAUMA
-        self.treat_trauma_mean = DEFAULT_TRAUMA_TREAT_MEAN
-        self.treat_trauma_var = DEFAULT_TRAUMA_TREAT_VAR
-
-        #non trauma pathway
-        self.exam_mean = DEFAULT_EXAM_MEAN
-        self.exam_var = DEFAULT_EXAM_VAR
-
-        self.nt_treat_prob = DEFAULT_NON_TRAUMA_TREAT_P       
-        self.nt_treat_mean = DEFAULT_NON_TRAUMA_TREAT_MEAN
-        self.nt_treat_var = DEFAULT_NON_TRAUMA_TREAT_VAR
-
-    # def __eq__(self, other):
-    #     return self.n_triage == other.n_triage and \
-    #            self.n_reg == other.n_reg and \
-    #            self.n_exam == other.n_exam and \
-    #            self.n_trauma == other.n_trauma and \
-    #            self.n_cubicles_1 == other.n_cubicles_1 and \
-    #            self.n_cubicles_2 == other.n_cubicles_2 and \
-    #            self.prob_trauma == other.prob_trauma and \
-    #            self.treat_trauma_mean == other.treat_trauma_mean and \
-    #            self.treat_trauma_var == other.treat_trauma_var and \
-    #            self.exam_mean == other.exam_mean and \
-    #            self.exam_var == other.exam_var and \
-    #            self.nt_treat_prob == other.nt_treat_prob and \
-    #            self.nt_treat_mean == other.self.nt_treat_mean and \
-    #            self.nt_treat_var == other.nt_treat_var
- 
-    # def __hash__(self):
-    #     ''''''
-    #     return hash((self.n_triage,
-    #                  self.n_reg,
-    #                  self.n_exam,
-    #                  self.n_trauma,
-    #                  self.n_cubicles_1,
-    #                  self.n_cubicles_2,
-    #                  self.prob_trauma,
-    #                  self.treat_trauma_mean,
-    #                  self.treat_trauma_var,
-    #                  self.exam_mean,
-    #                  self.exam_var,
-    #                  self.nt_treat_prob,
-    #                  self.nt_treat_mean,
-    #                  self.nt_treat_var))
+        self.n_cubicles_1 = n_cubicles_1
+        self.n_cubicles_2 = n_cubicles_2
 
     def init_sampling(self):
         '''
@@ -276,12 +308,12 @@ class Scenario:
         # create distributions
         
         # Triage duration
-        self.triage_dist = Exponential(DEFAULT_TRIAGE_MEAN, 
+        self.triage_dist = Exponential(self.triage_mean, 
                                        random_seed=self.seeds[0])
         
         # Registration duration (non-trauma only)
-        self.reg_dist = Lognormal(DEFAULT_REG_MEAN, 
-                                  np.sqrt(DEFAULT_REG_VAR),
+        self.reg_dist = Lognormal(self.reg_mean, 
+                                  np.sqrt(self.reg_var),
                                   random_seed=self.seeds[1])
         
         # Evaluation (non-trauma only)
@@ -290,21 +322,21 @@ class Scenario:
                                 random_seed=self.seeds[2])
         
         # Trauma/stablisation duration (trauma only)
-        self.trauma_dist = Exponential(DEFAULT_TRAUMA_MEAN, 
+        self.trauma_dist = Exponential(self.trauma_mean, 
                                        random_seed=self.seeds[3])
         
         # Non-trauma treatment
-        self.nt_treat_dist = Lognormal(self.nt_treat_mean, 
-                                       np.sqrt(self.nt_treat_var),
+        self.nt_treat_dist = Lognormal(self.non_trauma_treat_mean, 
+                                       np.sqrt(self.non_trauma_treat_var),
                                        random_seed=self.seeds[4])
         
         # treatment of trauma patients
-        self.treat_dist = Lognormal(self.treat_trauma_mean, 
-                                    np.sqrt(self.treat_trauma_var),
+        self.treat_dist = Lognormal(self.trauma_treat_mean, 
+                                    np.sqrt(self.non_trauma_treat_var),
                                     random_seed=self.seeds[5])
         
         # probability of non-trauma patient requiring treatment
-        self.nt_p_treat_dist = Bernoulli(self.nt_treat_prob, 
+        self.nt_p_treat_dist = Bernoulli(self.non_trauma_treat_p, 
                                          random_seed=self.seeds[6])
         
         
@@ -314,8 +346,7 @@ class Scenario:
         
         # init sampling for non-stationary poisson process
         self.init_nspp()
-
-            
+        
     def init_nspp(self):
         
         # read arrival profile
@@ -1028,29 +1059,24 @@ def get_scenarios():
     scenarios['base'] = Scenario()
     
     # extra triage capacity
-    scenarios['triage+1'] = Scenario()
-    scenarios['triage+1'].n_triage += 1
+    scenarios['triage+1'] = Scenario(n_triage=DEFAULT_N_TRIAGE+1)
         
     # extra examination capacity
-    scenarios['exam+1'] = Scenario()
-    scenarios['exam+1'].n_exam += 1
+    scenarios['exam+1'] = Scenario(n_exam=DEFAULT_N_EXAM+1)
     
     # extra non-trauma treatment capacity
-    scenarios['treat+1'] = Scenario()
-    scenarios['treat+1'].n_cubicles_1 += 1
+    scenarios['treat+1'] = Scenario(n_cubicles_1=DEFAULT_N_CUBICLES_1+1)
     
-    #swap over 1 exam room for extra treat cubicle
-    scenarios['swap_exam_treat'] = Scenario()
-    scenarios['swap_exam_treat'].n_cubicles_1 += 1
-    scenarios['swap_exam_treat'].n_exam -= 1
-
-    #scenario + 3 min short mean exam times.
-    scenarios['short_exam'] = Scenario()
-    scenarios['short_exam'].n_cubicles_1 += 1
-    scenarios['short_exam'].n_exam -= 1
-    scenarios['short_exam'].exam_mean = 12.0
+    # swap over 1 exam room for extra treat cubicle
+    scenarios['swap_exam_treat'] = Scenario(n_triage=DEFAULT_N_TRIAGE+1,
+                                            n_exam=DEFAULT_N_EXAM-1)
     
+    # scenario + 3 min short mean exam times.
+    scenarios['short_exam'] = Scenario(n_triage=DEFAULT_N_TRIAGE+1,
+                                       n_exam=DEFAULT_N_EXAM-1,
+                                       exam_mean=12.0)    
     return scenarios
+
 
 
 def run_scenario_analysis(scenarios, rc_period, n_reps):
