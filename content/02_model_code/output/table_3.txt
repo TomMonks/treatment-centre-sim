@@ -9,7 +9,7 @@ Mean waiting time (mins) &   base &  triage+1 &  exam+1 &  treat+1 &  triage+exa
                   Triage &  28.86 &      1.09 &   36.46 &    39.36 &         1.14 \\
              Registation & 113.56 &    138.79 &  106.27 &   108.46 &       140.14 \\
              Examination &  24.57 &     24.15 &    0.13 &    23.03 &         0.15 \\
-    Non-trauma treatment & 137.72 &    139.98 &  151.82 &     2.26 &       152.09 \\
+    Non-trauma treatment & 292.71 &    295.57 &  296.22 &   162.00 &       299.21 \\
     Trauma stabilisation & 144.46 &    154.00 &  132.94 &   146.09 &       165.43 \\
         Trauma treatment & 168.27 &    209.12 &  195.16 &   150.37 &       193.69 \\
 \bottomrule
