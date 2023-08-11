@@ -27,6 +27,6 @@ html:
 # Configure your Binder links, such as the URL of the BinderHub.
 launch_buttons:
   binderhub_url: "https://mybinder.org"
-  #colab_url: "https://colab.research.google.com"
+  colab_url: "https://colab.research.google.com"
   notebook_interface: "jupyterlab"
   thebe: true
