@@ -368,6 +368,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-a-notebook-on-google-colaboratory">Launching a notebook on Google Colaboratory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyter-lab-on-binderhub">Launching Jupyter Lab on BinderHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-code-in-the-book">Executing code in the book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-code-on-a-local-machine-using-docker">Executing the code on a local machine using Docker</a></li>
@@ -386,6 +387,23 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="steps-to-reproduce-results">
 <h1>Steps to reproduce results<a class="headerlink" href="#steps-to-reproduce-results" title="Permalink to this heading">#</a></h1>
+<section id="launching-a-notebook-on-google-colaboratory">
+<h2>Launching a notebook on Google Colaboratory<a class="headerlink" href="#launching-a-notebook-on-google-colaboratory" title="Permalink to this heading">#</a></h2>
+<p>The <a class="reference internal" href="04_model.html"><span class="doc std std-doc">model code</span></a> can be executed without having to install anything on a local machine using Google’s online notebook infrastructure.</p>
+<blockquote>
+<div><p>At the time of writing this is the recommended option due to a temporary shortage of capacity on <a class="reference external" href="http://mybinder.org">mybinder.org</a></p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Open the model code page of this book</p></li>
+<li><p>In the top right hand corner you will see that a rocket ship icon is added to the tool bar.  Move the cursor over this rocket ship and select <strong>Colab</strong> from the drop down list</p></li>
+<li><p>The model notebook will now launch on Google Colaboratory.  This is similar to a remote instance of Jupyter. You will be presented with a notebook containing the model code.</p></li>
+<li><p>From the <code class="docutils literal notranslate"><span class="pre">Runtime</span></code> menu select <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">All</span></code>. This will run all cells and reproduce the results of the study.</p></li>
+</ol>
+<div class="admonition-google-account admonition">
+<p class="admonition-title">Google account</p>
+<p>In order to run notebooks in Google Colaboratory you are required to sign into a Google account</p>
+</div>
+</section>
 <section id="launching-jupyter-lab-on-binderhub">
 <h2>Launching Jupyter Lab on BinderHub<a class="headerlink" href="#launching-jupyter-lab-on-binderhub" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference internal" href="04_model.html"><span class="doc std std-doc">model code</span></a> can be executed without having to install anything on a local machine.</p>
@@ -403,6 +421,9 @@ document.write(`
 <section id="executing-code-in-the-book">
 <h2>Executing code in the book<a class="headerlink" href="#executing-code-in-the-book" title="Permalink to this heading">#</a></h2>
 <p>The <a class="reference internal" href="04_model.html"><span class="doc std std-doc">model code</span></a> can also be excuted directly from the pages of this book.  To do this repeat steps 1-2 above, but select <code class="docutils literal notranslate"><span class="pre">live</span> <span class="pre">code</span></code> from the drop down menu.  Blocks of code will now be converted to interactive and executable <strong>cells</strong>.</p>
+<blockquote>
+<div><p>Note live code uses <a class="reference external" href="http://mybinder.org">mybinder.org</a>.  This is experiencing a temporary shortage of capacity.</p>
+</div></blockquote>
 </section>
 <section id="executing-the-code-on-a-local-machine-using-docker">
 <h2>Executing the code on a local machine using Docker<a class="headerlink" href="#executing-the-code-on-a-local-machine-using-docker" title="Permalink to this heading">#</a></h2>
@@ -503,6 +524,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-a-notebook-on-google-colaboratory">Launching a notebook on Google Colaboratory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-jupyter-lab-on-binderhub">Launching Jupyter Lab on BinderHub</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-code-in-the-book">Executing code in the book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-the-code-on-a-local-machine-using-docker">Executing the code on a local machine using Docker</a></li>

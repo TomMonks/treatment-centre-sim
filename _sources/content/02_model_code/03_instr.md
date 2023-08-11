@@ -1,5 +1,20 @@
 # Steps to reproduce results
 
+## Launching a notebook on Google Colaboratory 
+
+The [model code](./04_model.ipynb) can be executed without having to install anything on a local machine using Google's online notebook infrastructure.  
+
+> At the time of writing this is the recommended option due to a temporary shortage of capacity on mybinder.org
+
+1. Open the model code page of this book
+2. In the top right hand corner you will see that a rocket ship icon is added to the tool bar.  Move the cursor over this rocket ship and select **Colab** from the drop down list
+3. The model notebook will now launch on Google Colaboratory.  This is similar to a remote instance of Jupyter. You will be presented with a notebook containing the model code.
+4. From the `Runtime` menu select `Run All`. This will run all cells and reproduce the results of the study.
+
+```{admonition} Google account
+In order to run notebooks in Google Colaboratory you are required to sign into a Google account
+```
+
 ## Launching Jupyter Lab on BinderHub
 
 The [model code](./04_model.ipynb) can be executed without having to install anything on a local machine.  
@@ -17,7 +32,9 @@ Note that BinderHub will build a Docker image containing the required software a
 
 ## Executing code in the book
 
-The [model code](./04_model.ipynb) can also be excuted directly from the pages of this book.  To do this repeat steps 1-2 above, but select `live code` from the drop down menu.  Blocks of code will now be converted to interactive and executable **cells**.
+The [model code](./04_model.ipynb) can also be excuted directly from the pages of this book.  To do this repeat steps 1-2 above, but select `live code` from the drop down menu.  Blocks of code will now be converted to interactive and executable **cells**.  
+
+> Note live code uses mybinder.org.  This is experiencing a temporary shortage of capacity.
 
 
 ## Executing the code on a local machine using Docker

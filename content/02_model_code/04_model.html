@@ -247,6 +247,24 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
+      <li><a href="https://colab.research.google.com/github/TomMonks/treatment-centre-sim/blob/main/content/02_model_code/04_model.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
       <li>
 <button onclick="initThebeSBT()"
   class="btn btn-sm btn-launch-thebe dropdown-item"
@@ -457,7 +475,7 @@ document.write(`
 <h1>SimPy: Treatment Centre<a class="headerlink" href="#simpy-treatment-centre" title="Permalink to this heading">#</a></h1>
 <div class="admonition-running-the-model admonition">
 <p class="admonition-title">Running the model</p>
-<p><strong>This simulation model in this notebook can be executed online. You do not need to install anything on your computer.</strong> Move you mourse cursor over the rocket ship icon above and choose one of the two options: Binder (launches an external remote instance of Jupyter-Lab) or Thebe (code cells are excutable within the book).</p>
+<p><strong>This simulation model in this notebook can be executed online. You do not need to install anything on your computer.</strong> Move you mourse cursor over the rocket ship icon above and choose one of the three options: Colab (launches as a notebook on Google Colaboratory)  Binder (launches an external remote instance of Jupyter-Lab) or Thebe (code cells are excutable within the book).  <strong>Due to a temporary shortage of capacity on Binder we recommend Google Colab as the most reliable option.</strong></p>
 </div>
 <blockquote>
 <div><p>See <a class="reference internal" href="03_instr.html"><span class="doc std std-doc">detailed instructions</span></a> for more help.</p>
@@ -466,6 +484,19 @@ document.write(`
 <section id="imports">
 <h2>1. Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h2>
 <p>The model is provided with a conda virtual environment <code class="docutils literal notranslate"><span class="pre">treatment_sim</span></code>.  Details are available in the <a class="reference external" href="https://github.com/TomMonks/treatment-centre-sim/blob/main/environment.yml">Github repo</a>.</p>
+<blockquote>
+<div><p>If you are running this code in <strong>Google Colab</strong> then <code class="docutils literal notranslate"><span class="pre">simpy</span></code> can be pip installed.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># install simpy if running in Google Colab</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="k">if</span> <span class="s1">&#39;google.colab&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span><span class="nv">simpy</span><span class="o">==</span><span class="m">4</span>.0.1
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">simpy</span>
@@ -548,7 +579,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a68bab8481aaeb3e9fb1824138bb847a74cd50a4f1b4f69781df95eaff35fc16.png" src="../../_images/a68bab8481aaeb3e9fb1824138bb847a74cd50a4f1b4f69781df95eaff35fc16.png" />
+<img alt="../../_images/91bf0455f92170cdc8fd4f332cde6cc1d8b4790a0fffaa66bc05e8808e07f1fa.png" src="../../_images/91bf0455f92170cdc8fd4f332cde6cc1d8b4790a0fffaa66bc05e8808e07f1fa.png" />
 </div>
 </div>
 </section>
@@ -845,110 +876,22 @@ document.write(`
 <span class="sd">    </span>
 <span class="sd">    Passed to a model and its process classes</span>
 <span class="sd">    &#39;&#39;&#39;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_number_set</span><span class="o">=</span><span class="n">DEFAULT_RNG_SET</span><span class="p">,</span>
-                 <span class="n">n_triage</span><span class="o">=</span><span class="n">DEFAULT_N_TRIAGE</span><span class="p">,</span>
-                 <span class="n">n_reg</span><span class="o">=</span><span class="n">DEFAULT_N_REG</span><span class="p">,</span>
-                 <span class="n">n_exam</span><span class="o">=</span><span class="n">DEFAULT_N_EXAM</span><span class="p">,</span>
-                 <span class="n">n_trauma</span><span class="o">=</span><span class="n">DEFAULT_N_TRAUMA</span><span class="p">,</span>
-                 <span class="n">n_cubicles_1</span><span class="o">=</span><span class="n">DEFAULT_N_CUBICLES_1</span><span class="p">,</span>
-                 <span class="n">n_cubicles_2</span><span class="o">=</span><span class="n">DEFAULT_N_CUBICLES_2</span><span class="p">,</span>
-                 <span class="n">triage_mean</span><span class="o">=</span><span class="n">DEFAULT_TRIAGE_MEAN</span><span class="p">,</span>
-                 <span class="n">reg_mean</span><span class="o">=</span><span class="n">DEFAULT_REG_MEAN</span><span class="p">,</span>
-                 <span class="n">reg_var</span><span class="o">=</span><span class="n">DEFAULT_REG_VAR</span><span class="p">,</span>
-                 <span class="n">exam_mean</span><span class="o">=</span><span class="n">DEFAULT_EXAM_MEAN</span><span class="p">,</span>
-                 <span class="n">exam_var</span><span class="o">=</span><span class="n">DEFAULT_EXAM_VAR</span><span class="p">,</span>
-                 <span class="n">trauma_mean</span><span class="o">=</span><span class="n">DEFAULT_TRAUMA_MEAN</span><span class="p">,</span>
-                 <span class="n">trauma_treat_mean</span><span class="o">=</span><span class="n">DEFAULT_TRAUMA_TREAT_MEAN</span><span class="p">,</span>
-                 <span class="n">trauma_treat_var</span><span class="o">=</span><span class="n">DEFAULT_TRAUMA_TREAT_VAR</span><span class="p">,</span>
-                 <span class="n">non_trauma_treat_mean</span><span class="o">=</span><span class="n">DEFAULT_NON_TRAUMA_TREAT_MEAN</span><span class="p">,</span>
-                 <span class="n">non_trauma_treat_var</span><span class="o">=</span><span class="n">DEFAULT_NON_TRAUMA_TREAT_VAR</span><span class="p">,</span>
-                 <span class="n">non_trauma_treat_p</span><span class="o">=</span><span class="n">DEFAULT_NON_TRAUMA_TREAT_P</span><span class="p">,</span>
-                 <span class="n">prob_trauma</span><span class="o">=</span><span class="n">DEFAULT_PROB_TRAUMA</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_number_set</span><span class="o">=</span><span class="n">DEFAULT_RNG_SET</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">        Create a scenario to parameterise the simulation model</span>
+<span class="sd">        The init method sets up our defaults.</span>
 <span class="sd">        </span>
 <span class="sd">        Parameters:</span>
 <span class="sd">        -----------</span>
 <span class="sd">        random_number_set: int, optional (default=DEFAULT_RNG_SET)</span>
 <span class="sd">            Set to control the initial seeds of each stream of pseudo</span>
 <span class="sd">            random numbers used in the model.</span>
-<span class="sd">        </span>
-<span class="sd">        n_triage: int</span>
-<span class="sd">            The number of triage cubicles</span>
-<span class="sd">        </span>
-<span class="sd">        n_reg: int</span>
-<span class="sd">            The number of registration clerks</span>
-<span class="sd">            </span>
-<span class="sd">        n_exam: int</span>
-<span class="sd">            The number of examination rooms</span>
-<span class="sd">            </span>
-<span class="sd">        n_trauma: int</span>
-<span class="sd">            The number of trauma bays for stablisation</span>
-<span class="sd">            </span>
-<span class="sd">        n_cubicles_1: int</span>
-<span class="sd">            The number of non-trauma treatment cubicles</span>
-<span class="sd">            </span>
-<span class="sd">        n_cubicles_2: int</span>
-<span class="sd">            The number of trauma treatment cubicles</span>
-<span class="sd">            </span>
-<span class="sd">        triage_mean: float</span>
-<span class="sd">            Mean duration of the triage distribution (Exponential)</span>
-<span class="sd">            </span>
-<span class="sd">        reg_mean: float</span>
-<span class="sd">            Mean duration of the registration distribution (Lognormal)</span>
-<span class="sd">            </span>
-<span class="sd">        reg_var: float</span>
-<span class="sd">            Variance of the registration distribution (Lognormal)</span>
-<span class="sd">            </span>
-<span class="sd">        exam_mean: float</span>
-<span class="sd">            Mean of the examination distribution (Normal)</span>
-<span class="sd">            </span>
-<span class="sd">        exam_var: float</span>
-<span class="sd">            Variance of the examination distribution (Normal)</span>
-<span class="sd">            </span>
-<span class="sd">        trauma_mean: float</span>
-<span class="sd">            Mean of the trauma stabilisation distribution (Exponential)</span>
-<span class="sd">            </span>
-<span class="sd">        trauma_treat_mean: float</span>
-<span class="sd">            Mean of the trauma cubicle treatment distribution (Lognormal)</span>
-<span class="sd">            </span>
-<span class="sd">        trauma_treat_var: float</span>
-<span class="sd">            Variance of the trauma cubicle treatment distribution (Lognormal)</span>
-<span class="sd">        </span>
-<span class="sd">        non_trauma_treat_mean: float</span>
-<span class="sd">            Mean of the non trauma treatment distribution</span>
-<span class="sd">            </span>
-<span class="sd">        non_trauma_treat_var: float</span>
-<span class="sd">            Variance of the non trauma treatment distribution</span>
-<span class="sd">        </span>
-<span class="sd">        non_trauma_treat_p: float</span>
-<span class="sd">            Probability non trauma patient requires treatment</span>
-<span class="sd">            </span>
-<span class="sd">        prob_trauma: float</span>
-<span class="sd">            probability that a new arrival is a trauma patient.</span>
 <span class="sd">        &#39;&#39;&#39;</span>
         <span class="c1"># sampling</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">random_number_set</span> <span class="o">=</span> <span class="n">random_number_set</span>
-        
-        <span class="c1"># store parameters for sampling</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">triage_mean</span> <span class="o">=</span> <span class="n">triage_mean</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reg_mean</span> <span class="o">=</span> <span class="n">reg_mean</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reg_var</span> <span class="o">=</span> <span class="n">reg_var</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">exam_mean</span><span class="o">=</span> <span class="n">exam_mean</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">exam_var</span> <span class="o">=</span> <span class="n">exam_var</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">trauma_mean</span> <span class="o">=</span> <span class="n">trauma_mean</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">trauma_treat_mean</span> <span class="o">=</span> <span class="n">trauma_treat_mean</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">trauma_treat_var</span> <span class="o">=</span> <span class="n">trauma_treat_var</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_mean</span> <span class="o">=</span> <span class="n">non_trauma_treat_mean</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_var</span> <span class="o">=</span> <span class="n">non_trauma_treat_var</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_p</span> <span class="o">=</span> <span class="n">non_trauma_treat_p</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">prob_trauma</span> <span class="o">=</span> <span class="n">prob_trauma</span>
-        
         <span class="bp">self</span><span class="o">.</span><span class="n">init_sampling</span><span class="p">()</span>
         
         <span class="c1"># count of each type of resource</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">init_resourse_counts</span><span class="p">(</span><span class="n">n_triage</span><span class="p">,</span> <span class="n">n_reg</span><span class="p">,</span> <span class="n">n_exam</span><span class="p">,</span> <span class="n">n_trauma</span><span class="p">,</span>
-                                  <span class="n">n_cubicles_1</span><span class="p">,</span> <span class="n">n_cubicles_2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">init_resourse_counts</span><span class="p">()</span>
     
     <span class="k">def</span> <span class="nf">set_random_no_set</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">random_number_set</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
@@ -962,19 +905,18 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">random_number_set</span> <span class="o">=</span> <span class="n">random_number_set</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">init_sampling</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">init_resourse_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_triage</span><span class="p">,</span> <span class="n">n_reg</span><span class="p">,</span> <span class="n">n_exam</span><span class="p">,</span> <span class="n">n_trauma</span><span class="p">,</span>
-                             <span class="n">n_cubicles_1</span><span class="p">,</span> <span class="n">n_cubicles_2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">init_resourse_counts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">        Init the counts of resources to default values...</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_triage</span> <span class="o">=</span> <span class="n">n_triage</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_reg</span> <span class="o">=</span> <span class="n">n_reg</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_exam</span> <span class="o">=</span> <span class="n">n_exam</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_trauma</span> <span class="o">=</span> <span class="n">n_trauma</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_triage</span> <span class="o">=</span> <span class="n">DEFAULT_N_TRIAGE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_reg</span> <span class="o">=</span> <span class="n">DEFAULT_N_REG</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_exam</span> <span class="o">=</span> <span class="n">DEFAULT_N_EXAM</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_trauma</span> <span class="o">=</span> <span class="n">DEFAULT_N_TRAUMA</span>
         
         <span class="c1"># non-trauma (1), trauma (2) treatment cubicles</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_cubicles_1</span> <span class="o">=</span> <span class="n">n_cubicles_1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_cubicles_2</span> <span class="o">=</span> <span class="n">n_cubicles_2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_cubicles_1</span> <span class="o">=</span> <span class="n">DEFAULT_N_CUBICLES_1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_cubicles_2</span> <span class="o">=</span> <span class="n">DEFAULT_N_CUBICLES_2</span>
 
     <span class="k">def</span> <span class="nf">init_sampling</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&#39;&#39;&#39;</span>
@@ -988,40 +930,40 @@ document.write(`
         <span class="c1"># create distributions</span>
         
         <span class="c1"># Triage duration</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">triage_dist</span> <span class="o">=</span> <span class="n">Exponential</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">triage_mean</span><span class="p">,</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">triage_dist</span> <span class="o">=</span> <span class="n">Exponential</span><span class="p">(</span><span class="n">DEFAULT_TRIAGE_MEAN</span><span class="p">,</span> 
                                        <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         
         <span class="c1"># Registration duration (non-trauma only)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">reg_dist</span> <span class="o">=</span> <span class="n">Lognormal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_mean</span><span class="p">,</span> 
-                                  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reg_var</span><span class="p">),</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reg_dist</span> <span class="o">=</span> <span class="n">Lognormal</span><span class="p">(</span><span class="n">DEFAULT_REG_MEAN</span><span class="p">,</span> 
+                                  <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">DEFAULT_REG_VAR</span><span class="p">),</span>
                                   <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         
         <span class="c1"># Evaluation (non-trauma only)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">exam_dist</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_mean</span><span class="p">,</span>
-                                <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exam_var</span><span class="p">),</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">exam_dist</span> <span class="o">=</span> <span class="n">Normal</span><span class="p">(</span><span class="n">DEFAULT_EXAM_MEAN</span><span class="p">,</span>
+                                <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">DEFAULT_EXAM_VAR</span><span class="p">),</span>
                                 <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
         
         <span class="c1"># Trauma/stablisation duration (trauma only)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">trauma_dist</span> <span class="o">=</span> <span class="n">Exponential</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trauma_mean</span><span class="p">,</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">trauma_dist</span> <span class="o">=</span> <span class="n">Exponential</span><span class="p">(</span><span class="n">DEFAULT_TRAUMA_MEAN</span><span class="p">,</span> 
                                        <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
         
         <span class="c1"># Non-trauma treatment</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nt_treat_dist</span> <span class="o">=</span> <span class="n">Lognormal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_mean</span><span class="p">,</span> 
-                                       <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_var</span><span class="p">),</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nt_treat_dist</span> <span class="o">=</span> <span class="n">Lognormal</span><span class="p">(</span><span class="n">DEFAULT_NON_TRAUMA_TREAT_MEAN</span><span class="p">,</span> 
+                                       <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">DEFAULT_NON_TRAUMA_TREAT_VAR</span><span class="p">),</span>
                                        <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
         
         <span class="c1"># treatment of trauma patients</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">treat_dist</span> <span class="o">=</span> <span class="n">Lognormal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trauma_treat_mean</span><span class="p">,</span> 
-                                    <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_var</span><span class="p">),</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">treat_dist</span> <span class="o">=</span> <span class="n">Lognormal</span><span class="p">(</span><span class="n">DEFAULT_TRAUMA_TREAT_MEAN</span><span class="p">,</span> 
+                                    <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">DEFAULT_TRAUMA_TREAT_VAR</span><span class="p">),</span>
                                     <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
         
         <span class="c1"># probability of non-trauma patient requiring treatment</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nt_p_treat_dist</span> <span class="o">=</span> <span class="n">Bernoulli</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">non_trauma_treat_p</span><span class="p">,</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">nt_p_treat_dist</span> <span class="o">=</span> <span class="n">Bernoulli</span><span class="p">(</span><span class="n">DEFAULT_NON_TRAUMA_TREAT_P</span><span class="p">,</span> 
                                          <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
         
         
         <span class="c1"># probability of non-trauma versus trauma patient</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">p_trauma_dist</span> <span class="o">=</span> <span class="n">Bernoulli</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">prob_trauma</span><span class="p">,</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">p_trauma_dist</span> <span class="o">=</span> <span class="n">Bernoulli</span><span class="p">(</span><span class="n">DEFAULT_PROB_TRAUMA</span><span class="p">,</span> 
                                        <span class="n">random_seed</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">seeds</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span>
         
         <span class="c1"># init sampling for non-stationary poisson process</span>
@@ -1182,7 +1124,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NonTraumaPathway</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">NonTraumaPathway</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Encapsulates the process a patient with minor injuries and illness.</span>
 <span class="sd">    </span>
@@ -1897,8 +1839,8 @@ document.write(`
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 
-CPU times: user 2.07 s, sys: 3.09 ms, total: 2.08 s
-Wall time: 3.44 s
+CPU times: user 2.99 s, sys: 22.1 ms, total: 3.01 s
+Wall time: 4.34 s
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -2061,7 +2003,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e11a874d48df114541c272db79e971e1d79da962a252494e6a9f31ce89a4fd23.png" src="../../_images/e11a874d48df114541c272db79e971e1d79da962a252494e6a9f31ce89a4fd23.png" />
+<img alt="../../_images/975c949ac15f97269287bb7af1e5fe1a0ff8067e01c0fc173b9561a8e57b7a89.png" src="../../_images/975c949ac15f97269287bb7af1e5fe1a0ff8067e01c0fc173b9561a8e57b7a89.png" />
 </div>
 </div>
 <p>## 10. Scenario Analysis</p>
@@ -2085,16 +2027,20 @@ dtype: float64
     <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;base&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
     
     <span class="c1"># extra triage capacity</span>
-    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;triage+1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">n_triage</span><span class="o">=</span><span class="n">DEFAULT_N_TRIAGE</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;triage+1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;triage+1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">n_triage</span> <span class="o">+=</span> <span class="mi">1</span>
         
     <span class="c1"># extra examination capacity</span>
-    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;exam+1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">n_exam</span><span class="o">=</span><span class="n">DEFAULT_N_EXAM</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;exam+1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;exam+1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">n_exam</span> <span class="o">+=</span> <span class="mi">1</span>
     
     <span class="c1"># extra non-trauma treatment capacity</span>
-    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;treat+1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">n_cubicles_1</span><span class="o">=</span><span class="n">DEFAULT_N_CUBICLES_1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;treat+1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;treat+1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">n_cubicles_1</span> <span class="o">+=</span> <span class="mi">1</span>
     
-    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;triage+exam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">(</span><span class="n">n_triage</span><span class="o">=</span><span class="n">DEFAULT_N_TRIAGE</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span>
-                                        <span class="n">n_exam</span><span class="o">=</span><span class="n">DEFAULT_N_EXAM</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;triage+exam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Scenario</span><span class="p">()</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;triage+exam&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">n_triage</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">scenarios</span><span class="p">[</span><span class="s1">&#39;triage+exam&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">n_exam</span> <span class="o">+=</span> <span class="mi">1</span>
     
     <span class="k">return</span> <span class="n">scenarios</span>
 </pre></div>
@@ -2539,6 +2485,10 @@ Mean waiting time (mins) &amp;   base &amp;  triage+1 &amp;  exam+1 &amp;  treat
 \bottomrule
 \end{tabular}
 \end{table}
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_23454/2438087669.py:6: FutureWarning: In future versions `DataFrame.to_latex` is expected to utilise the base implementation of `Styler.to_latex` for formatting and rendering. The arguments signature may therefore change. It is recommended instead to use `DataFrame.style.to_latex` which also contains additional functionality.
+  waiting_times.to_latex(OUTPUT_FILE, index=False, label=LABEL, caption=CAPTION)
 </pre></div>
 </div>
 </div>
